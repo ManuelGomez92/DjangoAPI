@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/amcharts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/animate/animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/dataloader/dataloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/export.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/responsive/responsive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/FileSaver.js/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/classList.js/classList.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/fabric.js/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/jszip/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/pdfmake/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.15/plugins/export/libs/xlsx/xlsx.min.js"></script>
+    
+
+</head>
+<body>
+    <div id="chartdiv"></div>
+    <script>
+      // Cargar los datos desde la API de DRF
+      fetch('http://127.0.0.1:8000/api/frecuencia-compras/')
+          .then(response => response.json())
+          .then(data => {
+              // Crear una matriz de datos en el formato adecuado para AmCharts
+              let chartData = data.map(item => ({
+                  "respuesta": item.respuesta,
+                  "numeros": item.num_respuestas
+              }));
+      
+              // Crear la gráfica de anillo
+              am4core.ready(function() {
+                  // Configurar el tema
+                  am4core.useTheme(am4themes_animated);
+      
+                  // Crear una instancia del gráfico
+                  var chart = am4core.create("chartdiv", am4charts.PieChart);
+      
+                  // Agregar datos al gráfico
+                  chart.data = chartData;
+      
+                  // Configurar la serie
+                  var pieSeries = chart.series.push(new am4charts.PieSeries());
+                  pieSeries.dataFields.value = "numeros";
+                  pieSeries.dataFields.category = "respuesta";
+                  pieSeries.slices.template.stroke = am4core.color("#fff");
+                  pieSeries.slices.template.strokeWidth = 2;
+                  pieSeries.slices.template.strokeOpacity = 1;
+      
+                  // Configurar etiquetas de datos
+                  pieSeries.ticks.template.disabled = true;
+                  pieSeries.labels.template.text = "{category}: {value.value}";
+                  pieSeries.labels.template.radius = am4core.percent(-40);
+                  pieSeries.labels.template.fill = am4core.color("white");
+      
+                  // Configurar un efecto de deslizamiento
+                  pieSeries.hiddenState.properties.endAngle = -90;
+      
+              }); 
+          })
+          .catch(error => console.error(error));
+      </script>
+      
+</body>
+</html>
