@@ -40,7 +40,8 @@ class producto_frecuente(models.Model):
     id = models.AutoField(primary_key=True)
     respuesta = models.CharField(max_length=100)
     num_respuestas = models.IntegerField(default=0)
-    
+
+
         
 class notificacion(models.Model):
     id = models.AutoField(primary_key=True)

@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from api import views
 from django.contrib.auth import views as auth_views
-from api.views import enviarCorreo, FrecuenciaComprasData
+from api.views import enviarCorreo, FrecuenciaComprasList
+from api.views import AnilloChartView
 
 
 urlpatterns = [
@@ -29,6 +30,7 @@ urlpatterns = [
     path('registros/',views.datosgenerales,name='datos_generales'),
     path('graficos/',views.graficos,name='dashboard'),    
     path('enviarCorreo/', views.enviarCorreo,name='enviarCorreo'),
-    path('api/frecuencia_compras/', FrecuenciaComprasData.as_view(), name='frecuencia_compras-data'),
+    path('frecuencia_compras/', FrecuenciaComprasList.as_view(), name='frecuencia_compras-data'),
+    path('anillo-chart/', AnilloChartView.as_view(), name='anillo-chart'),
     path('', include('django.contrib.auth.urls'))
 ]

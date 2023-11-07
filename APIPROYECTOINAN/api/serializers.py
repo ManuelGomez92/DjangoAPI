@@ -14,10 +14,9 @@ class LoginSerializer(serializers.Serializer):
     )
     remember_me = serializers.BooleanField()
     
-from rest_framework import serializers
-from .models import frecuencia_compras
+
 
 class FrecuenciaComprasSerializer(serializers.ModelSerializer):
     class Meta:
         model = frecuencia_compras
-        fields = ('id', 'respuesta', 'num_respuestas')
+        fields = ['respuesta', 'num_respuestas']

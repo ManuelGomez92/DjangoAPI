@@ -12,6 +12,8 @@ from django.http.response import HttpResponse
 from django.core.mail import send_mail
 import smtplib
 from django.http import JsonResponse
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 
@@ -66,8 +68,12 @@ from rest_framework import generics
 from .models import frecuencia_compras
 from .serializers import FrecuenciaComprasSerializer
 
-class FrecuenciaComprasData(generics.ListAPIView):
+class FrecuenciaComprasList(generics.ListCreateAPIView):
     queryset = frecuencia_compras.objects.all()
     serializer_class = FrecuenciaComprasSerializer
-    
+
+class AnilloChartView(APIView):
+    def get(self, request):
+        data = frecuencia_compras.objects.all().values('respuesta', 'num_respuestas')
+        return Response(data)
     
