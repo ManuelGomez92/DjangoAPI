@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js" integrity="sha512-EmNxF3E6bM0Xg1zvmkeYD3HDBeGxtsG92IxFt1myNZhXdCav9MzvuH/zNMBU1DmIPN6njrhX1VTbqdJxQ2wHDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+</head>
+<body>
+    <!-- Incluye ECharts en tu página -->
+<script src="ruta-a-echarts/echarts.min.js"></script>
+
+<!-- El contenedor donde se renderizará el gráfico -->
+<div id="anillo-chart" style="width: 600px; height: 400px;"></div>
+
+<script>
+    // Código para obtener los datos de la API de DRF
+    fetch('/anillo-chart/')
+        .then(response => response.json())
+        .then(data => {
+            const chart = echarts.init(document.getElementById('anillo-chart'));
+            const options = {
+                series: [
+                    {
+                        type: 'pie',
+                        radius: '50%',
+                        data: data.map(item => ({ name: item.respuesta, value: item.num_respuestas })),
+                    }
+                ]
+            };
+            chart.setOption(options);
+        });
+</script>
+    
+      
+</body>
+</html>

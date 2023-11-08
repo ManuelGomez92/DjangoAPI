@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <title>Gráficas con chart.js | By Parzibyte</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+
+  </head>
+
+  <body>
+    <h1 style="text-align: center;">Preguntas de satisfacción</h1>
+    <div class="row">
+      <div class="column">
+        <div>
+          <p>
+            1. ¿Con qué frecuencia realiza compras en nuestro establecimiento?
+          </p>
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo"></canvas>
+        </div>
+        <script src="{% static 'js/js/scriptgrafica.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            2. ¿Qué producto suele comprar con más frecuencia en nuestra
+            papelería?
+          </p>
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo2"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask2.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            3. ¿Te gustaría recibir notificaciones o descuentos especiales a través de una aplicación o correo electrónico?
+          </p>
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo3"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask3.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            4. ¿Qué características te gustaría ver en la aplicación web de nuestra papelería? (Selecciona todas las que correspondan)
+          </p>
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo4"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask4.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            5. ¿Qué sistema operativo utilizarías en tu dispositivo principal para acceder a la aplicación web?
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo5"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask5.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            6. ¿Qué tipo de dispositivo sueles utilizar para acceder a la aplicación web de nuestra papelería?
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo6"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask6.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            7. ¿Qué elementos son indispensables para tí dentro de nuestra aplicación web de nuestra papelería? Selecciona las que creas convenientes
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo7"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask7.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            8. ¿Has utilizado al menos una aplicación web para comprar productos en alguna papelería?
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo8"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask8.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            9. ¿Con qué frecuencia has experimentado problemas técnicos al utilizar la aplicación web (por ejemplo, errores, tiempos de carga lentos, etc.)?
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo9"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask9.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            10. ¿Qué tan fácil te resulta navegar en la página web?
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo10"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask10.js' %}"></script>
+      </div>
+      <div class="column">
+        <div>
+          <p>
+            11. ¿Le gustaría que ofrecieramos venta de equipos de oficina (Multifuncionales, equipos de cómputo, etc)?
+        </div>
+        <div style="width: 250px; height: 300px">
+          <canvas id="anillo11"></canvas>
+        </div>
+        <script src="{% static 'js/js/grafica-ask11.js' %}"></script>
+      </div>
+    </div>
+  </body>
+</html>
