@@ -52,6 +52,9 @@ def enviarCorreo(request):
 @login_required
 def inicio(request):    
     return render(request, 'inicio.html')
+
+def inicio2(request):    
+    return render(request, 'inicio-en.html')
     
 
 def datosgenerales(request):

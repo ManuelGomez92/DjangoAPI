@@ -92,10 +92,10 @@ DATABASES = {
         
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gerardodb',
-        'USER': 'gerardodb_user',
-        'PASSWORD': 'aIWObZTx3bvCaGiFsr1c0gJRWTXCDgJR',
-        'HOST': 'oregon-postgres.render.com',  # O la dirección de tu servidor PostgreSQL
+        'NAME': 'papel_magico',
+        'USER': 'postgres',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',  # O la dirección de tu servidor PostgreSQL
         'PORT': '5432',           # Deja esto en blanco para usar el puerto predeterminado
     }
 }
