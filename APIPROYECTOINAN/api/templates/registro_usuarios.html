@@ -103,7 +103,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="{% url 'reg_users' %}">Registrar nuevo</a>
+            <a class="collapse-item" href="#">Registrar nuevo</a>
             <a class="collapse-item" href="{% url 'datos_generales' %}">Buscar empleado</a>
           </div>
         </div>
@@ -150,7 +150,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar por..."
                 aria-label="Search" aria-describedby="basic-addon2" />
@@ -160,7 +160,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -173,7 +173,7 @@
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                 aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
+                <!-- <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" 
                       placeholder="Buscar por..."
@@ -184,7 +184,7 @@
                       </button>
                     </div>
                   </div>
-                </form>
+                </form> -->
               </div>
             </li>
 
@@ -192,15 +192,15 @@
 
 
             <li class="nav-item dropdown no-arrow">
-              <a class="dropdown-item" href="{% url 'inicio' %}" >
-              <li class="nav-item dropdown no-arrow">
+              <a class="dropdown-item" href="{% url 'inicio' %}">
+            <li class="nav-item dropdown no-arrow">
               <span class="mr-2 d-none d-lg-inline text-gray-600 small">Español</span>
               <img class="img-profile rounded-circle" src="{% static 'img/mexico.jpg' %}"
                 style="height: 50px; width: 50px;" />
             </li>
             </a>
 
-            <a class="dropdown-item" href="{% url 'inicio2' %}" >
+            <a class="dropdown-item" href="{% url 'inicio2' %}">
 
               <li class="nav-item dropdown no-arrow">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">English</span>
@@ -245,7 +245,7 @@
 
         <div id="content-wrapper" class="d-flex flex-column" style="height: 770px">
           <!-- Inicio slider -->
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="max-height: 100%">
+          <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="max-height: 100%">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="{% static 'img/papeleria.jpg' %}" class="d-block w-100" alt="..." />
@@ -300,8 +300,76 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
-          </div>
+          </div> -->
           <!-- Footer -->
+          <h3 style="text-align: center;">Registro de empleados</h3>
+          <div class="formulario" style="height: 100%; width: 70%; margin: auto;">
+            <form class="user" method="POST" style="padding: 40px;">
+              {% csrf_token %}
+              <div class="form-group row">
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                  <label for="">Nombre(s)</label>
+                  <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                     name="nombre" required />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <label for="">Apellido paterno</label>
+                  <input type="text" class="form-control form-control-user" id="exampleLastName"
+                     name="paterno" required />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <label for="">Apellido materno</label>
+                  <input type="text" class="form-control form-control-user" id="exampleLastName"
+                    name="materno" required />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <label for="">Teléfono</label>
+                  <input type="number" class="form-control form-control-user" id="exampleLastName"
+                     name="telefono" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Fecha de ingreso</label>
+                <input type="date" class="form-control form-control-user" id="exampleInputEmail"
+                  placeholder="Fecha de ingreso" name="fecha_ingreso" required />
+
+              </div>
+
+              <div class="form-group">
+                <!-- Tu archivo HTML -->
+                <label for="">Departamento</label>
+                <select id="miSelect" class="form-select form-select-lg mb-3"></select>
+
+                <script>
+                  fetch('/departamentos/')
+                    .then(response => response.json())
+                    .then(data => {
+                      const select = document.getElementById('miSelect');
+                      data.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.idDepartamento;
+                        option.text = item.descripcion;  // Puedes cambiar esto dependiendo de tus necesidades
+                        select.appendChild(option);
+                      });
+                    })
+                    .catch(error => console.error('Error al obtener datos:', error));
+                </script>
+              </div>
+              <input class="btn btn-primary btn-user btn-block" type="submit" value="Crear nuevo"
+                style="background-color: #10445c;">
+              <!-- <a href="#" class="btn btn-primary btn-user btn-block">
+                Registrar cuenta
+              </a> -->
+              <hr />
+
+            </form>
+          </div>
           <footer class="sticky-footer bg-white">
             <div class="container my-auto">
               <div class="copyright text-center my-auto">
@@ -344,6 +412,8 @@
         </div>
       </div>
     </div>
+
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

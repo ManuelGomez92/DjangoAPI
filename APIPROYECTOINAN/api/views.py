@@ -1,12 +1,12 @@
 from django.shortcuts import render,redirect
 from rest_framework.views import APIView
-from . forms import UsuarioForm
+from . forms import UsuarioForm,EmpleadoForm
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import login, logout
-from . serializers import LoginSerializer
+from . serializers import LoginSerializer, DepartmanentoSerializer
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponse
 from django.core.mail import send_mail
@@ -14,6 +14,7 @@ import smtplib
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 
 
 
@@ -25,7 +26,7 @@ def login(request):
 
 def formulario(request):    
     if request.method == 'POST':
-        form = UsuarioForm(request.POST)
+        form = UsuarioForm(request.POST)        
         if form.is_valid():
             form.save()
             
@@ -64,12 +65,22 @@ def datosgenerales(request):
 def graficos(request):
     return render(request, 'grafica.html')
 
+def registroUsuarios(request):    
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)        
+        if form.is_valid():
+            form.save()
+            
+    else:
+        form = EmpleadoForm()
+    return render(request, 'registro_usuarios.html', {'form':form})
+
 
 
     
 from rest_framework import generics
-from .models import frecuencia_compras
-from .serializers import FrecuenciaComprasSerializer
+from .models import frecuencia_compras, Departamento
+from .serializers import FrecuenciaComprasSerializer, DepartmanentoSerializer
 
 class FrecuenciaComprasList(generics.ListCreateAPIView):
     queryset = frecuencia_compras.objects.all()
@@ -80,3 +91,8 @@ class AnilloChartView(APIView):
         data = frecuencia_compras.objects.all().values('respuesta', 'num_respuestas')
         return Response(data)
     
+@api_view(['GET'])
+def DepartamentoListView(request):
+    datos = Departamento.objects.all()
+    serializer = DepartmanentoSerializer(datos, many=True)
+    return Response(serializer.data)

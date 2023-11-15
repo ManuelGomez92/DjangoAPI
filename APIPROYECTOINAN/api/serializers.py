@@ -1,7 +1,7 @@
 # miapp/serializers.py
 from rest_framework import serializers
 from django.contrib.auth import authenticate
-from .models import frecuencia_compras
+from .models import frecuencia_compras, Departamento
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(
@@ -20,3 +20,9 @@ class FrecuenciaComprasSerializer(serializers.ModelSerializer):
     class Meta:
         model = frecuencia_compras
         fields = ['respuesta', 'num_respuestas']
+
+
+class DepartmanentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Departamento
+        fields = '__all__'

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from api import views
 from django.contrib.auth import views as auth_views
-from api.views import enviarCorreo, FrecuenciaComprasList
+from api.views import enviarCorreo, FrecuenciaComprasList, DepartamentoListView
 from api.views import AnilloChartView
 
 
@@ -25,10 +25,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.model,name='login'),      
     path('altaUsuarios/',views.formulario,name='formulario'),
-    path('inicio/en/',views.inicio2,name='index'),
+    path('en/inicio/',views.inicio2,name='inicio2'),
     path('inicio/',views.inicio,name='inicio'),
     path('login/',views.login,name='login'),
     path('registros/',views.datosgenerales,name='datos_generales'),
+     path('departamentos/', DepartamentoListView, name='departamentos'),
+    path('registroUsuarios/',views.registroUsuarios,name='reg_users'),
     path('graficos/',views.graficos,name='dashboard'),    
     path('enviarCorreo/', views.enviarCorreo,name='enviarCorreo'),
     path('frecuencia_compras/', FrecuenciaComprasList.as_view(), name='frecuencia_compras-data'),

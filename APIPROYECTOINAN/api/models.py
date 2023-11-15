@@ -7,6 +7,14 @@ class Genero(models.Model):
     tipoGenero = models.TextField(db_column='tipoGenero')
     class Meta:
         db_table='Generos'
+
+class Departamento(models.Model):
+    idDepartamento = models.AutoField(primary_key=True,db_column='idDepartamento')
+    descripcion = models.CharField(max_length=100,db_column='descripcion')
+    class Meta:
+        db_table='Departamentos'
+        def __str__(self):
+            return self.descripcion
         
 class Usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True,db_column='idUsuario')
@@ -18,6 +26,19 @@ class Usuario(models.Model):
     password = models.CharField(max_length=100,db_column='password')    
     class Meta:
         db_table='Usuarios'        
+        def __str__(self):
+            return f'{self.id}'
+        
+class Empleado(models.Model):
+    idEmpleado = models.AutoField(primary_key=True,db_column='idEmpleado')
+    nombre = models.CharField(max_length=100,db_column='nombre')
+    paterno = models.CharField(max_length=100,db_column='paterno')
+    materno = models.CharField(max_length=100,db_column='materno')
+    telefono = models.CharField(max_length=100,db_column='telefono')
+    fecha_ingreso = models.DateField(db_column='fecha_ingreso')
+       
+    class Meta:
+        db_table='Empleados'        
         def __str__(self):
             return f'{self.id}'
 

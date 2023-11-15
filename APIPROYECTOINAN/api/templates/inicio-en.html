@@ -65,7 +65,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'inicio'%}">
             <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
-            <span style="font-size: 18px;">Inicio</span></a
+            <span style="font-size: 18px;">Start</span></a
           >
         </li>
 
@@ -73,7 +73,7 @@
         <hr class="sidebar-divider" />
 
         <!-- Heading -->
-        <div class="sidebar-heading">Menú</div>
+        <div class="sidebar-heading">Menu</div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -95,8 +95,8 @@
             data-parent="#accordionSidebar"
           >
             <div class="bg-white py-2 collapse-inner rounded">              
-              <a class="collapse-item" href="buttons.html">Entrada de Productos</a>
-              <a class="collapse-item" href="cards.html">Venta de productos</a>
+              <a class="collapse-item" href="buttons.html">Product Entry</a>
+              <a class="collapse-item" href="cards.html">Sales</a>
             </div>
           </div>
         </li>
@@ -121,10 +121,10 @@
             data-parent="#accordionSidebar"
           >
             <div class="bg-white py-2 collapse-inner rounded">              
-              <a class="collapse-item" href="utilities-color.html">Papelería</a>
-              <a class="collapse-item" href="utilities-border.html">Accesorios</a>
+              <a class="collapse-item" href="utilities-color.html">Stationery</a>
+              <a class="collapse-item" href="utilities-border.html">Accesories</a>
               <a class="collapse-item" href="utilities-animation.html"
-                >Libros</a
+                >Books</a
               >
               
             </div>
@@ -135,7 +135,7 @@
         <hr class="sidebar-divider" />
 
         <!-- Heading -->
-        <div class="sidebar-heading">Adicional</div>
+        <div class="sidebar-heading">Additional</div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -148,7 +148,7 @@
             aria-controls="collapsePages"
           >
           <i class="material-icons" style="font-size:20px">person</i>
-            <span>Empleados</span>
+            <span>Employees</span>
           </a>
           <div
             id="collapsePages"
@@ -158,8 +158,8 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               
-              <a class="collapse-item" href="#">Registrar nuevo</a>
-              <a class="collapse-item" href="{% url 'datos_generales' %}">Buscar empleado</a>              
+              <a class="collapse-item" href="#">Register New</a>
+              <a class="collapse-item" href="{% url 'datos_generales' %}">Search</a>              
             </div>
           </div>
         </li>
@@ -273,6 +273,26 @@
 
               <div class="topbar-divider d-none d-sm-block"></div>
 
+              <li class="nav-item dropdown no-arrow">
+                <a class="dropdown-item" href="{% url 'inicio' %}" >
+                <li class="nav-item dropdown no-arrow">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Español</span>
+                <img class="img-profile rounded-circle" src="{% static 'img/mexico.jpg' %}"
+                  style="height: 55px; width: 60px;" />
+              </li>
+              </a>
+  
+              <a class="dropdown-item" href="{% url 'inicio2' %}" >
+  
+                <li class="nav-item dropdown no-arrow">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">English</span>
+                  <img class="img-profile rounded-circle" src="{% static 'img/usa.jpg' %}"
+                    style="height: 50px; width: 50px;" />
+  
+                </li>
+              </a>
+              </li>
+
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
                 <a
@@ -358,7 +378,7 @@
                           font-weight: bold;
                         "
                       >
-                        Papelería
+                        Stationery
                       </h1></a
                     >
                   </div>
@@ -381,7 +401,7 @@
                           font-weight: bold;
                         "
                       >
-                        Artículos para oficina
+                      Office Supplies
                       </h1></a
                     >
                   </div>
@@ -404,7 +424,7 @@
                           font-weight: bold;
                         "
                       >
-                        Libros
+                        Books
                       </h1></a
                     >
                   </div>
