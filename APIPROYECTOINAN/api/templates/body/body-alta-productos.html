@@ -1,0 +1,65 @@
+{% load static %}
+<h3 style="text-align: center">Alta de productos</h3>
+<div class="formulario" style="height: 100%; width: 70%; margin: auto">
+  <form class="user" method="POST" style="padding: 40px">
+    {% csrf_token %}
+    <div class="form-group row">
+      <div class="col-sm-12 mb-3 mb-sm-0">
+        <label for="">Descripción</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          id="exampleFirstName"
+          name="descripcion"
+          required
+        />
+      </div>      
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-12 mb-3 mb-sm-0">
+        <label for="">Stock</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          id="exampleFirstName"
+          name="stock"
+          required
+        />
+      </div>      
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-12 mb-3 mb-sm-0">
+        <label for="">Precio</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          id="exampleFirstName"
+          name="precio"
+          required
+        />
+      </div>      
+    </div>
+
+
+
+    <div class="form-group">
+      <!-- Tu archivo HTML -->
+      <label for="">Categoría</label>
+      <select id="idcategoria_id" class="form-select form-select-lg mb-3" name="idcategoria_id"></select>
+      <script src="{% static 'js/js/categorias.js' %}"></script>
+    </div>
+    
+    <input
+      class="btn btn-primary btn-user btn-block"
+      type="submit"
+      value="Registrar"
+      style="background-color: #10445c"
+    />
+    <!-- <a href="#" class="btn btn-primary btn-user btn-block">
+                Registrar cuenta
+              </a> -->
+    <hr />
+  </form>
+</div>

@@ -1,0 +1,51 @@
+{% load static %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+  <p class="mb-4">
+    Conectar a
+    <a target="_blank" href="{% url 'upload-to-drive' %}">Google Drive</a>.
+  </p>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">
+        Registro de Usuarios
+      </h6>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <br>
+        <table class="table table-striped nowrap empleados-table" style="width:100%;" id="empleados-table">
+          <thead style="
+                        background-color: #10445c;
+                        color: white;
+                        font-weight: bold;
+                      ">
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Paterno</th>
+              <th>Materno</th>
+              <th>Teléfono</th>
+              <th>Fecha Ingreso</th>
+              <th>Sexo</th>
+              <th>Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas de datos se agregarán dinámicamente desde el script -->
+          </tbody>
+        </table>
+        <script src="{% static 'js/js/tabla-empleados.js' %}"></script>       
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->

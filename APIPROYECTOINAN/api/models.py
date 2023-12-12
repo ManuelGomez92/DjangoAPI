@@ -2,52 +2,95 @@ from django.db import models
 
 # Create your models here.
 
-class Genero(models.Model):
-    idGenero = models.AutoField(primary_key=True,db_column='idGenero')
-    tipoGenero = models.TextField(db_column='tipoGenero')
-    class Meta:
-        db_table='Generos'
+from django.db import models
 
-class Departamento(models.Model):
-    idDepartamento = models.AutoField(primary_key=True,db_column='idDepartamento')
-    descripcion = models.CharField(max_length=100,db_column='descripcion')
+class Genero(models.Model):    
+    tipogenero = models.TextField(db_column='tipogenero')
+
     class Meta:
-        db_table='Departamentos'
-        def __str__(self):
-            return self.descripcion
-        
-class Usuario(models.Model):
-    idUsuario = models.AutoField(primary_key=True,db_column='idUsuario')
-    nombre = models.CharField(max_length=100,db_column='nombre')
-    paterno = models.CharField(max_length=100,db_column='paterno')
-    materno = models.CharField(max_length=100,db_column='materno')
-    correo = models.CharField(max_length=100,db_column='correo')
-    alias = models.CharField(max_length=100,db_column='alias')
-    password = models.CharField(max_length=100,db_column='password')    
+        db_table = 'generos'
+
+    def __str__(self):
+        return self.tipogenero
+
+class Departamento(models.Model):    
+    descripcion = models.CharField(max_length=100, db_column='descripcion')
+
     class Meta:
-        db_table='Usuarios'        
-        def __str__(self):
-            return f'{self.id}'
-        
+        db_table = 'departamentos'
+
+    def __str__(self):
+        return self.descripcion
+
+class Categoria(models.Model):    
+    descripcion = models.CharField(max_length=100, db_column='descripcion')
+
+    class Meta:
+        db_table = 'categorias'
+
+    def __str__(self):
+        return self.descripcion
+
+class Productos(models.Model):    
+    descripcion = models.CharField(max_length=100, db_column='descripcion')
+    stock = models.IntegerField(db_column='stock')
+    idcategoria_id = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, db_column='precio')
+
+    class Meta:
+        db_table = 'productos'
+
+    def __str__(self):
+        return self.descripcion
+
+class Roles(models.Model):    
+    descripcion = models.CharField(max_length=100, db_column='descripcion')
+
+    class Meta:
+        db_table = 'roles'
+
+    def __str__(self):
+        return self.descripcion
+
 class Empleado(models.Model):
-    idEmpleado = models.AutoField(primary_key=True,db_column='idEmpleado')
-    nombre = models.CharField(max_length=100,db_column='nombre')
-    paterno = models.CharField(max_length=100,db_column='paterno')
-    materno = models.CharField(max_length=100,db_column='materno')
-    telefono = models.CharField(max_length=100,db_column='telefono')
+    nombre = models.CharField(max_length=100, db_column='nombre')
+    paterno = models.CharField(max_length=100, db_column='paterno')
+    materno = models.CharField(max_length=100, db_column='materno')
+    telefono = models.CharField(max_length=100, db_column='telefono')
     fecha_ingreso = models.DateField(db_column='fecha_ingreso')
-       
-    class Meta:
-        db_table='Empleados'        
-        def __str__(self):
-            return f'{self.id}'
+    sexo = models.ForeignKey(Genero, on_delete=models.CASCADE)
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
 
-class usuario_has_genero(models.Model):
-    idusuario_has_genero = models.AutoField(primary_key=True,default=1,db_column='idalumno_has_genero')
-    fk_usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,db_column='fk_usuario')
-    fk_genero = models.ForeignKey(Genero,on_delete=models.CASCADE,db_column='fk_genero')
     class Meta:
-        db_table='usuario_has_genero'
+        db_table = 'empleados'
+
+    def __str__(self):
+        return f'{self.nombre} {self.paterno} {self.materno}'
+
+class Usuario(models.Model):    
+    nombre = models.CharField(max_length=100, db_column='nombre')
+    paterno = models.CharField(max_length=100, db_column='paterno')
+    materno = models.CharField(max_length=100, db_column='materno')
+    correo = models.CharField(max_length=100, db_column='correo')
+    alias = models.CharField(max_length=100, db_column='alias')
+    password = models.CharField(max_length=100, db_column='password')           
+    idempleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    idrol = models.ForeignKey(Roles, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'usuarios'
+
+    def __str__(self):
+        return f'{self.nombre} {self.paterno} {self.materno}'
+
+class UsuarioHasGenero(models.Model):
+    fk_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, db_column='fk_usuario')
+    fk_genero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='fk_genero')
+
+    class Meta:
+        db_table = 'usuario_has_genero'
+
+
         
 """ Clases en base a las preguntas hechas en Google Forms """
         

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#example').DataTable( {
+    $('#empleados-table').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -13,5 +13,5 @@ $(document).ready(function() {
     $(".dt-button").css("height","50px");
     $(".dt-button").css("border-radius","5px");
     $(".dt-button").css("color","white");
-    $(".dt-button").css("font-weight","bold");
+    $(".dt-button").css("font-weight","bold");    
 } );

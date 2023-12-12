@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "symmetric-sonar-374507",
+  "private_key_id": "4d47ea640f13ec1708e3238e890b6681d37e259d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoCZTPUbRDEn5g\np5XTDx2TVppIJVRN3Jrf41poNX5ljAjvSwCqMHABEBFdacr+L2RIc6VFysEOeqWg\nXtVEQltrSqJABq+ASj1zpu5yyhSZJoLW1srNclsWw1dsyRXWvx0mjZzeB0KdGywE\nlqmcrQFLwMLvzIsOEVqMOADGi08uSn/zWZdRmDIyrnS5KSUxEtBKhD93XGe6kbfL\n2xJfMth+9LlWvZCbyOaspyQ245+68apEKdAMs/EiB5mcIFxtRET3v8Fn5H/ys5MZ\noM0WYvEYA66uQjBrNnIMtloTQAcyxcU1NRKkEk3joCTByCoAOsWcBdh3QZF0lymp\nLfAh7cXzAgMBAAECggEAGkntcwXYSsoA5YQyZ2Os/9kDqBfW+Ztyy2YZRcZgsOhY\nmX9FalrLmw71eITNkji92qvlBmczDt3XPaC4gsZS4RU7DwM8v7hdptNN6L1+vXsN\n6yiNb9jdMVF8QvOuq/sYR2jOStod7NBMcadUf8N9OWm91aBNfPTwEpHMZUN0LsyO\nEwYWT2rQSUSENeodJO2UBPLgkzzZzHKGSk0WKCHojO6CwA/yYwDulzVobHUA/Adm\nfqrkMa8JJbuAohSZzoZHvTsA/FPyj/TN0Sb/Qnyxkx/RNtNHTPqMHRuJXemrGdHz\nuNgZlR+20ZM1CNdzhZIX2gc7as5smi/4Xwc/Msc8OQKBgQDSDRjs9U0NfvTYdT4V\nz5hiYj55AvHA1cOoo3jYwze2JZrKr94HVjPAd/l0vjBO+Mc6TOYz4hr5a896DL/8\n/x8nyG9So6xUN15HjZ7vDN1ed/fHbYmyYDMuqasBK4TL2Byhjpic1Dyf2thCnahQ\nj/t4uT9fjQA6TJTq26bHnIkB9wKBgQDMy7UPMeTuOByl0UFy7ag/Wm4iyN+tbZK9\ntysCOWEpnml+1FkYfcDamSakHUF/uRe5GKl78WOwggtSLmTLg9C27UeJ36+r/xAj\neU+IjwDjwHIQrySm4n40cILPC0Ko2ljnDs7veg+oW/l668JCVGrPPghHE85zeuOl\nLERpkBgc5QKBgQCHpF+RPYMJkQ9p7KQwD4PXHJw9JvKY1THpZ881IzOJ01TXSKR3\nVmpLAu67PcoSZUK6WkhZ/svuf3lW1n7wUIt89Ek3M2yoYaznRgP5WPRm+c+vIARI\nhSjoHDbKpaC2xhMPHPdeZwvTKs52jjrP83qv5eiPuo0IGMYdt8RGqMYs1wKBgG4e\nLqoP8v/gbg7/GIkanvgJwOS1TAhtvZSDM/4LKmJ9ik4nEg0oORWRegSOspRhyw68\n4w0A+9CB7GJxDcOcihKCPZA2FbiO+neImCpecmUEKpEsC7IsYR4DTWLUtDAkz97V\nyJFd+aNWaSweLqMJzzDGMx882Cqh7lv3FIYKc9y9AoGAZpvmyC04jOnDGUN3gfgm\npE+ecSTysI4kLbLVC4Mmwm8vxwtUMViLniKHkZRiUQ4OIjkQctQvnug6FvCws1k5\n2MQRIKy1l9GlEd6V+vyH5ArWx9cc8JPhWjUzG2fH969pjtBnzgkSoq7uBgsHrMqP\nhskNvjD8azEV+kuHcMUDUEI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "api-google-drive@symmetric-sonar-374507.iam.gserviceaccount.com",
+  "client_id": "107457202785214955730",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/api-google-drive%40symmetric-sonar-374507.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

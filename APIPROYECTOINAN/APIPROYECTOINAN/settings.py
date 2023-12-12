@@ -45,10 +45,10 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-    ),
+        'rest_framework.authentication.SessionAuthentication',
+    ],
 }
 
 MIDDLEWARE = [
@@ -92,7 +92,7 @@ DATABASES = {
         
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'papel_magico',
+        'NAME': 'papel_magico2',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',  # O la dirección de tu servidor PostgreSQL
@@ -155,3 +155,13 @@ EMAIL_HOST_PASSWORD = 'eowtbsideqvrkhst'
 #Configuracion opcional para el correo
 DEFAULT_FROM_EMAIL = 'gg204872@gmail.com'
 EMAIL_SUBJECT_PREFIX = '[API-Django]'
+
+GOOGLE_DRIVE_CONFIG = {
+    'CLIENT_SECRET_FILE': 'C:\Gerardo\Repositorios Github\Django-API-master\APIPROYECTOINAN\api\symmetric-sonar-374507-4d47ea640f13.json',
+    'API_NAME': 'drive',
+    'API_VERSION': 'v3',
+    'SCOPES': ['https://www.googleapis.com/auth/drive.file'],
+    'APPLICATION_NAME': 'Tu aplicación de Google Drive',
+}
+
+GOOGLE_DRIVE_CREDENTIALS = 'C:/Gerardo/Repositorios Github/Django-API-master/APIPROYECTOINAN/api/credencialApi.json'

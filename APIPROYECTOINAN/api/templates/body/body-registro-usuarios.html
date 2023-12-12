@@ -1,0 +1,88 @@
+{% load static %}
+<h3 style="text-align: center">Registro de empleados</h3>
+<div class="formulario" style="height: 100%; width: 70%; margin: auto">
+  <form class="user" method="POST" style="padding: 40px">
+    {% csrf_token %}
+    <div class="form-group row">
+      <div class="col-sm-12 mb-3 mb-sm-0">
+        <label for="">Nombre(s)</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          id="nombre"
+          name="nombre"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <label for="">Apellido paterno</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          id="paterno"
+          name="paterno"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <label for="">Apellido materno</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          id="materno"
+          name="materno"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <label for="">Teléfono</label>
+        <input
+          type="number"
+          class="form-control form-control-user"
+          id="telefono"
+          name="telefono"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Fecha de ingreso</label>
+      <input
+        type="date"
+        class="form-control form-control-user"
+        id="fecha_ingreso"
+        placeholder="Fecha de ingreso"
+        name="fecha_ingreso"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <!-- Tu archivo HTML -->
+      <label for="">Sexo</label>
+      <select id="sexo" class="form-select form-select-lg mb-3" name="sexo"></select>
+      <script src="{% static 'js/js/generos.js' %}"></script>
+    </div>
+    <div class="form-group">
+      <!-- Tu archivo HTML -->
+      <label for="">Departamento</label>
+      <select id="departamento" class="form-select form-select-lg mb-3" name="departamento"></select>
+      <script src="{% static 'js/js/departamentos.js' %}"></script>
+    </div>
+    <input
+      class="btn btn-primary btn-user btn-block"
+      type="submit"
+      value="Crear nuevo"
+      style="background-color: #10445c"
+    />
+    <!-- <a href="#" class="btn btn-primary btn-user btn-block">
+                Registrar cuenta
+              </a> -->
+    <hr />
+  </form>
+</div>
