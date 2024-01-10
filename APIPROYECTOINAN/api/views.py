@@ -20,10 +20,10 @@ from rest_framework.decorators import api_view
 
 
 def model(request):    
-    return render(request, 'login.html')
+    return render(request, 'loguear.html')
 
-def login(request):
-    return render(request, 'login.html')
+def loguear(request):
+    return render(request, 'loguear.html')
 
 def formulario(request):    
     if request.method == 'POST':
@@ -61,6 +61,9 @@ def inicio2(request):
 
 def datosgenerales(request):
     return render(request, 'datos-generales.html')
+
+def datosproductos(request):
+    return render(request, 'inventario.html')
 
 
 def graficos(request):
@@ -148,6 +151,30 @@ class EmpleadosDataView(APIView):
                 'fecha_ingreso': row[5],
                 'sexo': row[6],
                 'departamento': row[7],
+            }
+            for row in results
+        ]
+
+        return Response(data)
+    
+class ProductosDataView(APIView): 
+    
+    def get(self, request):
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT a.id as id, a.descripcion as descripcion, a.stock as stock, b.descripcion as departamento, a.precio as precio
+	            FROM public.productos a, public.categorias b
+	            WHERE b.id = a.idcategoria_id_id
+            """)
+            results = cursor.fetchall()
+
+        data = [
+            {
+                'id': row[0],
+                'descripcion': row[1],
+                'stock': row[2],
+                'departamento': row[3],
+                'precio': row[4],                
             }
             for row in results
         ]

@@ -62,7 +62,7 @@ MIDDLEWARE = [
 ]
 
 LOGIN_REDIRECT_URL = '/inicio'
-LOGOUT_REDIRECT_URL = '/login'
+LOGOUT_REDIRECT_URL = '/loguear'
 
 ROOT_URLCONF = 'APIPROYECTOINAN.urls'
 
@@ -155,6 +155,12 @@ EMAIL_HOST_PASSWORD = 'eowtbsideqvrkhst'
 #Configuracion opcional para el correo
 DEFAULT_FROM_EMAIL = 'gg204872@gmail.com'
 EMAIL_SUBJECT_PREFIX = '[API-Django]'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '417561465664-4fl5ue5evl4s731kvpmnlrp8ljqc02v4.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/inicio/'
+
 
 GOOGLE_DRIVE_CONFIG = {
     'CLIENT_SECRET_FILE': 'C:\Gerardo\Repositorios Github\Django-API-master\APIPROYECTOINAN\api\symmetric-sonar-374507-4d47ea640f13.json',

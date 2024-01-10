@@ -101,7 +101,7 @@
                       </a> -->
                       <button id="btn-registrar" class="btn btn-primary btn-user btn-block">Entrar</button>
                       <hr />
-                      <a href="{% url 'enviarCorreo' %}" class="btn btn-google btn-user btn-block">
+                      <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Iniciar sesión con
                         Google
                       </a>

@@ -14,22 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include  # Solo importa path de django.urls
 from api import views
 from django.contrib.auth import views as auth_views
 from api.views import enviarCorreo, FrecuenciaComprasList, DepartamentoListView, UploadToGoogleDrive, CategoriaListView, GeneroListView
-from api.views import AnilloChartView, EmpleadosDataView
+from api.views import AnilloChartView, EmpleadosDataView, ProductosDataView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.model,name='login'),      
+    path('auth/', include('social_django.urls', namespace='social')),
+    path('',views.model,name='loguear'),          
     path('altaUsuarios/',views.formulario,name='formulario'),
     path('en/inicio/',views.inicio2,name='inicio2'),
     path('inicio/',views.inicio,name='inicio'),
-    path('login/',views.login,name='login'),
+    path('loguear/',views.loguear,name='loguear'),
     path('entrantes/',views.altaProductos,name='entrantes'),
-    path('registros/',views.datosgenerales,name='datos_generales'),    
+    path('registros/',views.datosgenerales,name='datos_generales'),  
+    path('inventario/',views.datosproductos,name='inventario'),  
     path('registroUsuarios/',views.registroUsuarios,name='reg_users'),
     path('graficos/',views.graficos,name='dashboard'),    
     path('enviarCorreo/', views.enviarCorreo,name='enviarCorreo'),
@@ -40,5 +42,6 @@ urlpatterns = [
     path('sexos/', GeneroListView, name='sexos'),
     path('categorias/', CategoriaListView, name='categorias'),
     path('empleados-data/', EmpleadosDataView.as_view(), name='empleados_data'),
+    path('products-data/', ProductosDataView.as_view(), name='products_data'),
     path('', include('django.contrib.auth.urls'))
 ]
